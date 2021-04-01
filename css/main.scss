@@ -96,6 +96,7 @@ section{
 .hero-img{
     width: 70%;
     margin-top: 3em;
+    transform: rotate(20deg);
 }
 
 section.features-section{
@@ -106,7 +107,8 @@ section.features-section{
 ul.features-list{
     margin: 0;
     padding-left: .1em;
-    // come back to this
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
 
     li{
         font-size: 1.1em;
@@ -225,4 +227,189 @@ nav{
     float: right;
     margin: .5em;
     cursor: pointer;
+}
+
+@media only screen and (min-width: 768px){
+
+    .mobile-menu, .mobile-menu-exit{
+        display: none;
+    }
+
+    .navbar .container{
+        display: grid;
+        grid-template-columns: 180px auto;
+        justify-content: unset;
+    }
+
+    .navbar nav{
+        display: flex;
+        justify-content: space-between;
+        background: none;
+        position: unset;
+        height: auto;
+        width: 100%;
+        padding: 0;
+
+        ul{
+            display: flex;
+
+            li.current a{
+                font-weight: bold;
+            }
+
+            li.go-premium-cta a{
+                color: var(--primary-color);
+                border: 3px solid var(--primary-color);
+                border-radius: 5em;
+                font-weight: bold;
+                margin-top: -3px;
+
+                &:hover{
+                    background: var(--primary-color);
+                    color: #fff;
+                }
+            }
+        }
+
+        a{
+            color:#151515;
+            font-size: 1em;
+            padding: .1em 1em;
+        }
+
+        ul.primary-nav{
+            margin: 0;
+        }
+    }
+
+    .hero-img{
+        width: 55%;
+        margin-top: 5em;
+    }
+}
+
+@media only screen and (min-width: 1080px){
+    
+    .container{
+        width: 1080px;
+        margin: 0 auto;
+    }
+
+    section{
+        padding: 10em 4em;
+    }
+
+    .hero .container{
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        .left-col{
+            margin: 3em 3em 0 5em;
+
+            h1{
+                font-size: 3em;
+                width: 90%;
+            }
+
+            .watch-video-cta{
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .hero-img{
+        width: 45%;
+    }
+
+    .hero-cta{
+        display: flex;
+        align-items: center;
+    }
+
+    .primary-cta{
+        margin-right: 1em;
+    }
+
+    ul.features-list{
+        display: block;
+        margin-left: 5em;
+        
+        li{
+            font-size: 1.4em;
+
+            &:before{
+                width: 34px;
+                height: 34px;
+            }
+        }
+    }
+
+    .features-section{
+        position: relative;
+
+        img{
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: -2em;
+            width: 40%;
+        }
+    }
+
+    .testimonials-section ul{
+        display: flex;
+
+        li{
+            margin: 0 1em;
+        }
+    }
+
+    .contact-section{
+        position: relative;
+
+        .container{
+            display: flex;
+        }
+    }
+    
+    .contact-right{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45%;
+        height: 100%;
+
+        iframe{
+            height: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1450px){
+    .features-section{
+        position: relative;
+
+        &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -4em;
+            width: 10%;
+            height: 20em;
+            background: var(--primary-color);
+        }
+
+        &:after{
+            content: '';
+            position: absolute;
+            width: 10%;
+            height: 20em;
+            left: 5.5em;
+            top: 2em;
+            background: url(/img/index.svg) no-repeat;
+        }
+    }
 }
